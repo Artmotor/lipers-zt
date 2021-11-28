@@ -146,7 +146,9 @@ declare
 function
   stud:промежуточнаяАттестацияУченика(
      $данные as element( table )*,
-     $идентификаторУченика as xs:string
+     $идентификаторУченика as xs:string,
+     $идентификаторУчителя as xs:string
+     
    )
 {
   let $table := $данные[ row[ 1 ]/cell[ text() = $идентификаторУченика ] ]
@@ -158,5 +160,5 @@ function
   where not ( matches( $предмет, '!' ) )
   order by $предмет  
   return
-    [ $предмет, $i/row[ position() = ( 2 to 6 ) ]/cell[ @label = $имяУченика ]/data() ]
+    [ $предмет, $i/row[ position() = ( 2 to 6 ) ]/cell[ @label = $имяУченика ]/data(), $i/row[ 2 ]/cell[ 2 ]/data() ]
 };
