@@ -146,8 +146,7 @@ declare
 function
   stud:промежуточнаяАттестацияУченика(
      $данные as element( table )*,
-     $идентификаторУченика as xs:string,
-     $идентификаторУчителя as xs:string
+     $идентификаторУченика as xs:string
      
    )
 {
